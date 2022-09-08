@@ -71,7 +71,7 @@ for estacion in tqdm(estaciones, leave=False, desc='Estaciones'):
     except:
         None
 
-    for annio in tqdm(range(1990, 2023), leave=False, desc='Annios'):
+    for annio in tqdm(range(1970, 1980), leave=False, desc='Annios'):
         for mes in range(1,13):
 
             archivo = str(annio)+'-'+str(mes).zfill(2)+'.csv'

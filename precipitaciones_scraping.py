@@ -62,13 +62,13 @@ try:
 except:
     None
     
-for estacion in tqdm(estaciones[:10], leave=False, desc='Estaciones'):
+for estacion in tqdm(estaciones, leave=False, desc='Estaciones'):
     try:
         os.mkdir(carpeta+'/'+str(estacion))
     except:
         None
     
-    for annio in tqdm(range(1990, 2023), leave=False, desc='Annios'):
+    for annio in tqdm(range(1970, 1980), leave=False, desc='Annios'):
         for mes in range(1,13):
             
             archivo = str(annio)+'-'+str(mes).zfill(2)+'.csv'
