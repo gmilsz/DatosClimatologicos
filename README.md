@@ -1,2 +1,8 @@
-# Datos Climatológicos
-Recopilación de datos climatológicos de Chile
+# Datos Climatológicos de Chile
+Recopilación de datos climatológicos de Chile extraídos desde la página de la [Dirección Meteorológica de Chile](http://www.meteochile.gob.cl/PortalDMC-web/index.xhtml) (DMC).
+
+Los datos de las estaciones meteorológicas se encuentran en el archivo [CatastroEstaciones.csv](CatastroEstaciones.csv) que se extrae desde el [buscador de estaciones](https://climatologia.meteochile.gob.cl/application/informacion/buscadorEstaciones) de la DMC, teniendo así 1392 estaciones para las cuales se extraeran los datos de temperaturas y precipitaciones diarias. Estos datos contienen, entre otra información, el Codigo Nacional, la Longitud y la Latitud de las estaciones.
+
+La extracción de los datos de temperatura se realiza mediante el script de Python [temperatura_scraping.py](temperatura_scraping.py), mientras que los datos de precipitación se extraen utilizando el script [precipitaciones_scraping.py](precipitaciones_scraping.py). Esto se hace accediendo a los informes mensuales de temperatura y precipitación ([como este](https://climatologia.meteochile.gob.cl/application/mensual/temperaturaMediaMensual/360019/2022/8) o [este](https://climatologia.meteochile.gob.cl/application/mensual/aguaCaidaMensual/360019/2022/8)) para cada estación, utilizando su Codigo Nacional, en cada mes de cierto año. Los datos resultantes se encuntran en carpetas con el código nacional de la estacion como nombre en las carpetas [datosTemperatura](datosTemperatura) y [datosPrecipitaciones](datosPrecipitaciones).
+
+Se extraerán los datos para el periodo 1950-Actualidad, pero por limitaciones técnicas se esta comenzando con las decadas más recientes para luego extraer las anteriores.
