@@ -62,7 +62,7 @@ try:
 except:
     None
     
-for estacion in tqdm(estaciones[500:], leave=False, desc='Estaciones'):
+for estacion in tqdm(estaciones[:500], leave=False, desc='Estaciones'):
     try:
         os.mkdir(carpeta+'/'+str(estacion))
     except:
