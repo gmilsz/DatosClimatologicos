@@ -8,6 +8,11 @@ from tqdm import tqdm
 from numpy import nan
 
 
+priAnnio = 2000
+ultAnnio = 2022
+ultMes = 8
+
+
 def precipitaciones_mensual(estacion, annio, mes):
     '''
     Esta funcion devuelve los datos mensuales de cierta estacion
@@ -62,21 +67,25 @@ try:
 except:
     None
     
-for estacion in tqdm(estaciones[:500], leave=False, desc='Estaciones'):
+for estacion in tqdm(estaciones[100:200], leave=False, desc='Estaciones'):
     try:
         os.mkdir(carpeta+'/'+str(estacion))
     except:
         None
     
-    for annio in tqdm(range(2010, 2023), leave=False, desc='Annios'):
+    for annio in tqdm(range(priAnnio, ultAnnio+1), leave=False, desc='Annios'):
         for mes in range(1,13):
+
+            if annio >= ultAnnio and mes > ultMes:
+                break
             
             archivo = str(annio)+'-'+str(mes).zfill(2)+'.csv'
             if archivo in os.listdir(carpeta+'/'+str(estacion)+'/'):
                 continue
                 
-            dataMensual = precipitaciones_mensual(estacion, annio, mes)
-            
-            if len(dataMensual) > 0:
+            try:
+                dataMensual = precipitaciones_mensual(estacion, annio, mes)
                 dataMensual.to_csv(carpeta+'/'+str(estacion)+'/'+archivo,
-                                  index=False)
+                                   index=False)
+            except:
+                continue
