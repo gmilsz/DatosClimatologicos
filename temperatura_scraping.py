@@ -8,9 +8,9 @@ from tqdm import tqdm
 from numpy import nan
 
 
-priAnnio = 2000
-ultAnnio = 2022
-ultMes = 8
+priAnnio = 1980
+ultAnnio = 2000
+ultMes = 13
 ie = 1300
 fe = 1393
 
