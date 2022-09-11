@@ -11,7 +11,10 @@ from numpy import nan
 priAnnio = 2000
 ultAnnio = 2022
 ultMes = 8
+ie = 1300
+fe = 1393
 
+print(ie, fe)
 
 def temperatura_mensual(estacion, annio, mes):
     '''
@@ -44,12 +47,12 @@ def temperatura_mensual(estacion, annio, mes):
 
     i=0
     for dia in bs.findAll('tr', {'class': 'text-center'}):
-        dataDia = [annio, mes]
+        dataDia = [float(annio), float(mes)]
 
         k=0
         for columna in dia.findAll('td'):
             if k in [0,1,3,5,6,7]:
-                dataDia.append(columna.get_text()[1:-1])
+                dataDia.append(float(columna.get_text()[1:-1]))
             k += 1
 
         if len(dataDia) > 2:
@@ -70,7 +73,7 @@ try:
 except:
     None
 
-for estacion in tqdm(estaciones[100:200], leave=False, desc='Estaciones'):
+for estacion in tqdm(estaciones[ie:fe], leave=False, desc='Estaciones'):
     try:
         os.mkdir(carpeta+'/'+str(estacion))
     except:
