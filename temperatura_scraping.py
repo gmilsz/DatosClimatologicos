@@ -8,11 +8,11 @@ from tqdm import tqdm
 from numpy import nan
 
 
-priAnnio = 1960
-ultAnnio = 1980
-ultMes = 13
-ie = 500
-fe = 600
+priAnnio = 1950
+ultAnnio = 2023
+ultMes = 8
+ie = 0
+fe = 1393
 
 print(ie, fe)
 
